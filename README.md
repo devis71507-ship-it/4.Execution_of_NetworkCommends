@@ -28,80 +28,51 @@ This commands includes
 • Other IP Commands e.g. show ip route etc.
 <BR>
 
-SEVER.PY:
 
-```
-import socket
-
-s = socket.socket()
-s.bind(("localhost", 8081))
-s.listen(1)
-
-print("Server running...")
-
-while True:
-    c, addr = s.accept()
-
-    request = c.recv(1024).decode()
-    print("Request received")
-
-    if "GET" in request:
-        f = open("index.html", "r")
-        data = f.read()
-        f.close()
-
-        response = "HTTP/1.1 200 OK\n\n" + data
-        c.send(response.encode())
-
-    elif "POST" in request:
-        data = request.split("\n\n")[1]
-
-        f = open("upload.txt", "w")
-        f.write(data)
-        f.close()
-
-        c.send("HTTP/1.1 200 OK\n\nFile Uploaded".encode())
-
-    c.close()
-```
-
-CLIENT.PY:
-
-```
-import socket
-
-s = socket.socket()
-s.connect(("localhost", 8081))
-
-ch = input("1. Download  2. Upload : ")
-
-if ch == "1":
-    req = "GET / HTTP/1.1\nHost: localhost\n\n"
-    s.send(req.encode())
-
-    data = s.recv(4096)
-    print(data.decode())
-
-elif ch == "2":
-    msg = input("Enter data to upload: ")
-
-    req = "POST / HTTP/1.1\nHost: localhost\n\n" + msg
-    s.send(req.encode())
-
-    data = s.recv(1024)
-    print(data.decode())
-
-else:
-    print("Invalid choice")
-
-s.close()
-```
 
 ## Output
 
-<img width="1180" height="257" alt="Screenshot 2026-09-03 135051" src="https://github.com/user-attachments/assets/111d8c5d-f3b7-4adc-b552-d0365c7e5619" />
+# netstat
 
-<img width="1375" height="303" alt="Screenshot 2026-09-03 135107" src="https://github.com/user-attachments/assets/1f5332a8-78c1-4fcb-a448-33ba4c47e670" />
+<img width="756" height="650" alt="image" src="https://github.com/user-attachments/assets/42965163-7077-4ba9-ae2a-c49cba9b4c27" />
+
+
+# ipconfig
+
+<img width="713" height="558" alt="image" src="https://github.com/user-attachments/assets/fb17da1e-d190-48a2-b342-e9e0123d73d0" />
+
+# ping
+
+<img width="685" height="512" alt="image" src="https://github.com/user-attachments/assets/64924824-a25e-4d58-8e77-0e38fb50ca55" />
+
+# tracert
+
+<img width="565" height="217" alt="image" src="https://github.com/user-attachments/assets/87cb0e0d-e969-4c0b-8581-ab71ea98e1c1" />
+
+# nslookup
+
+<img width="397" height="360" alt="image" src="https://github.com/user-attachments/assets/3499c279-5093-46f7-9c51-e227f52efbbd" />
+
+# getmac
+
+<img width="650" height="118" alt="image" src="https://github.com/user-attachments/assets/f1d95118-cb51-452d-a4b2-32572cd7eb3f" />
+
+# hostname
+
+<img width="202" height="43" alt="image" src="https://github.com/user-attachments/assets/42eafdf3-af5b-4cea-b9b8-12d2c227ca43" />
+
+# nbtstat
+
+<img width="751" height="401" alt="image" src="https://github.com/user-attachments/assets/81a33dca-466f-4dd1-a285-453d238343a8" />
+
+# arp
+
+<img width="671" height="512" alt="image" src="https://github.com/user-attachments/assets/3b47ae05-d21a-4200-bdc2-4851a588cf1b" />
+
+# systeminfo
+
+<img width="590" height="763" alt="image" src="https://github.com/user-attachments/assets/5c3f404e-0c3e-4fb1-8a6b-2e677ed61521" />
+
 
 ## Result
 Thus Execution of Network commands Performed 
